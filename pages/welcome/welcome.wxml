@@ -1,0 +1,8 @@
+<!--小程序骨架文件  -->
+<view class='container'>
+  <image src='/images/enter.jpg' class='phoinex'></image>
+  <text class='user-name'>Hello Snowsmell</text>
+  <view class='moto-container' bindtap="onTap">
+    <text class='moto'>开启小程序之旅</text>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+.phoinex{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-top: 160rpx;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-name{
+  font-size: 38rpx;
+  font-weight: 600;
+  margin-top: 125rpx;
+}
+.moto-container{
+  margin-top: 160rpx;
+  border: 1px solid #405f80;
+  width: 220rpx;
+  height: 90rpx;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 90rpx;
+ } 
+.moto{
+  font-size: 28rpx;
+  font-weight: 600;    
+}
+ page{
+  background: #b3d4db;
+} 
