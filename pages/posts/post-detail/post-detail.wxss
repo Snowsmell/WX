@@ -79,6 +79,6 @@
 .detail{
   color:#666;
   margin:20rpx 30rpx 0;
-  line-height: 24rpx;
+  line-height: 44rpx;
   letter-spacing: 2px
 }
