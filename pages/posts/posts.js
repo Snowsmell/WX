@@ -17,5 +17,11 @@ Page({
     this.setData({
       post_key:postData.postList
     })
+  },
+  swiperTap:function(event){
+    var postId = event.target.dataset.postid;
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id='+postId,
+    })
   }
 })
