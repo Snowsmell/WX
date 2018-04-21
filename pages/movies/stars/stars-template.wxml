@@ -1,12 +1,11 @@
 <template name="starsTemplate">
   <view class='stars-container'>
     <view class='stars'>
-      <image src="/images/icon/star.png"></image>
-      <image src="/images/icon/star.png"></image>
-      <image src="/images/icon/star.png"></image>
-      <image src="/images/icon/star.png"></image>
-      <image src="/images/icon/star.png"></image>
+    <block wx:for="{{star}}" wx:for-item="i">
+      <!--老师用wx:if ,然后我选择了三元表达式,岂不美哉 -->
+      <image src="{{i==1?'/images/icon/star.png':'/images/icon/none-star.png'}}"></image>
+    </block>
     </view>
-    <text class='star-score'>{{average}}</text>
+    <text class='star-score'>{{score}}</text>
   </view>
 </template>

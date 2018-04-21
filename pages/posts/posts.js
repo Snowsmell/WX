@@ -13,7 +13,6 @@ Page({
     })
   },
   onLoad: function (options) {
-    
     this.setData({
       post_key:postData.postList
     })
