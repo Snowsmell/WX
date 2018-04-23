@@ -4,14 +4,14 @@
     <view class='inner-container'>
         <view class='movie-head'>
       <text class='slogan'>{{belongTitle}}</text>
-      <view class='more'>
+      <view catchtap='onMoreTap' class='more' data-belong='{{belongTitle}}'>
         <text class='more-text'>更多</text>
         <image class='more-img' src="/images/icon/arrow-right.png"></image>
       </view>
     </view>
     <view class='movies-container'>
 
-    <block wx:for="{{movies}}" wx:for-item="movie">
+    <block wx:for="{{movies}}" wx:for-item="movie" wx:key="i">
       <template is="movieTemplate" data="{{...movie}}"/>
     </block>
 

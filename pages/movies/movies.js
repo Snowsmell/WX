@@ -24,6 +24,12 @@ Page({
   },
   getMovieListData: function (url,settedkey,belongTitle) {
     var that =this;
+    
+    // util.http(url,function(res){
+    //   console.log(res)
+    //   that.processDoubanData(res.data, settedkey, belongTitle)
+    // })
+
     wx.request({
       url: url,
       data: {
@@ -53,7 +59,7 @@ Page({
     }
     //考验到js基础功底的写法
     var DataContainer={};
-    console.log(DataContainer);
+    // console.log(DataContainer);
     //为了方便区分，内部多加了一层，然后再wxml里利用扩展运算符展开得到不同的内容
     DataContainer[settedkey] = {
       movies:movies,
@@ -70,38 +76,11 @@ Page({
     // })
 
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+  onMoreTap:function(e){
+    var belong = e.currentTarget.dataset.belong;
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+    wx.navigateTo({
+      url: '/pages/movies/more-movie/more-movie?belong='+belong,
+    })
   }
 })
