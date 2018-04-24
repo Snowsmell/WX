@@ -1,18 +1,11 @@
 var postsData = require("../../../data/posts-data.js");
 var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     currentId: '',
     isplaying: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var postId = options.id;
     this.data.currentId = postId;
@@ -25,7 +18,7 @@ Page({
     //逻辑判断
     if (collectInfo) {
       //处理逻辑放在外面了
-      if(!collectInfo[postId]){
+      if (!collectInfo[postId]) {
         collectInfo[postId] = false
       }
     } else {
@@ -38,12 +31,11 @@ Page({
     this.setData({
       collected: collectInfo[postId]
     })
-
     //播放设置
     var that = this;
-    wx.onBackgroundAudioPlay(function(){
+    wx.onBackgroundAudioPlay(function () {
       that.setData({
-        isplaying:true
+        isplaying: true
       })
     })
     wx.onBackgroundAudioPause(function () {
@@ -51,20 +43,21 @@ Page({
         isplaying: false
       })
     })
-    if (app.globalData.g_isplaying && app.globalData.g_currentpostId==postId){
+    if (app.globalData.g_isplaying && app.globalData.g_currentpostId == postId) {
       this.setData({
-        isplaying:true
+        isplaying: true
       })
     }
     this.setAudio();
   },
+
   setAudio: function (event) {
     var that = this;
     wx.onBackgroundAudioPlay(function () {
       that.setData({
         isplaying: true
       })
-      app.globalData.g_isplaying=true
+      app.globalData.g_isplaying = true
       app.globalData.g_currentpostId = that.data.currentId;
     })
     wx.onBackgroundAudioPause(function () {
@@ -75,6 +68,7 @@ Page({
       app.globalData.g_currentpostId = null;
     })
   },
+
   collectTap: function (event) {
     //获取当前缓存中的值
     var collectInfo = wx.getStorageSync('collect_Info')
@@ -87,6 +81,7 @@ Page({
     })
     this.tapToast()
   },
+
   tapToast: function (event) {
     var now = wx.getStorageSync('collect_Info')[this.data.currentId]
     wx.showToast({
@@ -95,6 +90,7 @@ Page({
       icon: "success"
     })
   },
+
   onShareTap: function (event) {
     wx.showActionSheet({
       itemList: [
@@ -108,12 +104,13 @@ Page({
       }
     })
   },
+
   onMusicTap: function (event) {
     var isplaying = this.data.isplaying
     if (isplaying) {
       wx.pauseBackgroundAudio()
       this.setData({
-        isplaying:false
+        isplaying: false
       })
       console.log('暂停')
     } else {
@@ -124,9 +121,8 @@ Page({
       })
       this.setData({
         isplaying: true
-      })    
+      })
       console.log('播放')
     }
   },
-
 })

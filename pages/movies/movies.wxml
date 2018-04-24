@@ -1,7 +1,9 @@
 <import src="movielist/movielist-template.wxml" />
-<view class='container'>
-
- 
+<view class='search'>
+<icon type='search' class='search-img' size='13' color='#405f80'></icon>
+<input type='text' placeholder='钢之炼金术师' placeholder-class='placeholder' bindfocus='onBindFocus' bindinput='onBindinput'></input>
+</view>
+<view class='container'> 
     <view class="movies-template">
       <template is="movielistTemplate" data="{{...inTheaters}}" />
     </view>

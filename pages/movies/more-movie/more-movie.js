@@ -3,18 +3,11 @@ var app = getApp();
 var util = require("../../../utils/util.js");
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     requestUrl: '',
     totalCount: 0,
     flag: true
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var belong = options.belong
     var dataUrl = app.globalData.doubanBase;
@@ -36,6 +29,7 @@ Page({
       title: options.belong,
     })
   },
+  //处理返回数据
   processDoubanData: function (doubanData, settedkey, belongTitle) {
     var movies = []
     for (var i in doubanData.subjects) {
@@ -68,18 +62,14 @@ Page({
     }, 1000)
     wx.stopPullDownRefresh()
   },
-  // onScrollLower:function(){
-  //   var nextUrl = this.data.requestUrl+
-  //   "?start="+this.data.totalCount+"&count=20";
-  //   util.http(nextUrl, this.processDoubanData)
-  //   wx.showNavigationBarLoading()
-  // },
+  //滑动底部加载
   onReachBottom: function (event) {
     var nextUrl = this.data.requestUrl +
       "?start=" + this.data.totalCount + "&count=20";
     util.http(nextUrl, this.processDoubanData)
     wx.showNavigationBarLoading()
   },
+  //下拉刷新
   onPullDownRefresh: function (event) {
     this.data.flag = false
     this.data.movies = [];

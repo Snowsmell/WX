@@ -2,24 +2,18 @@
 <template name="movielistTemplate">
   <view class='movie-list-container'>
     <view class='inner-container'>
-        <view class='movie-head'>
-      <text class='slogan'>{{belongTitle}}</text>
-      <view catchtap='onMoreTap' class='more' data-belong='{{belongTitle}}'>
-        <text class='more-text'>更多</text>
-        <image class='more-img' src="/images/icon/arrow-right.png"></image>
+      <view class='movie-head'>
+        <text class='slogan'>{{belongTitle}}</text>
+        <view catchtap='onMoreTap' class='more' data-belong='{{belongTitle}}'>
+          <text class='more-text'>更多</text>
+          <image class='more-img' src="/images/icon/arrow-right.png"></image>
+        </view>
       </view>
-    </view>
-    <view class='movies-container'>
-
-    <block wx:for="{{movies}}" wx:for-item="movie" wx:key="i">
-      <template is="movieTemplate" data="{{...movie}}"/>
-    </block>
-
-    <!-- <block wx:for="{{item}}" wx:for-item="movie">
-      <template is="movieTemplate" data="{{...movie}}"/>
-    </block> 配套自己写的循环生成-->
-
-    </view>
+      <view class='movies-container'>
+        <block wx:for="{{movies}}" wx:for-item="movie" wx:key="i">
+          <template is="movieTemplate" data="{{...movie}}" />
+        </block>
+      </view>
     </view>
   </view>
 </template>

@@ -51,6 +51,6 @@ function convertToCastInfos(casts) {
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
-  convertToCastString:convertToCastString,
-  convertToCastInfos:convertToCastInfos
+  convertToCastString: convertToCastString,
+  convertToCastInfos: convertToCastInfos
 }
